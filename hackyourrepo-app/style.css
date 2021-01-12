@@ -32,13 +32,23 @@ body#hyRepo {
   background-color: #325aa8;
   color: #ffffff;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 #hyRepo .header select {
   margin-left: 2rem;
   font-size: 1rem;
   max-width: 80%;
+}
+
+#hyRepo .errors {
+  border-radius: 3px;
+  padding: 1.2rem;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+  width: 100%;
+  margin-bottom: 0.8rem;
 }
 
 #hyRepo .card {

@@ -4,17 +4,20 @@
   Write here your JavaScript for HackYourRepo!
 */
 
+// function #1: to fetch anything from server and return json
 async function fetchData(url) {
   const response = await fetch(url);
   return await response.json();
 }
 
+// function #2: to show a repository data upon selection of a repository
 function showRepo() {
   const repoContainer = document.querySelector("#hyRepo .details");
   const repoContributors = document.querySelector("#hyRepo .contributors");
   const repoSelector = document.querySelector("#hyRepo .header select");
   const repoData = JSON.parse(repoSelector.options[repoSelector.selectedIndex].dataset.repoInfo);
 
+  // remove the data of previously selected repo
   if (repoContainer.hasChildNodes()) {
     repoContainer.removeChild(repoContainer.childNodes[0]);
   }
@@ -47,6 +50,7 @@ function showRepo() {
 
   const contributorsURL = `https://api.github.com/repos/HackYourFuture/${repoData.name}/contributors`;
 
+  // remove the contributors of previously selected repo
   const allContributors = document.querySelectorAll("#hyRepo .contributors .contributor");
   allContributors.forEach(contributor => contributor.parentNode.removeChild(contributor));
 
@@ -74,10 +78,21 @@ function showRepo() {
           domContributions.textContent = contributor.contributions;
           domContributor.appendChild(domContributions);
         });
+      },
+      (err) => {
+        displayError(err);
       }
     )
 }
 
+// function #3: to show error messages
+function displayError(err) {
+  const errDisplay = document.querySelector("#hyRepo .errors");
+  errDisplay.style.display = "block";
+  errDisplay.textContent = err;
+}
+
+// function #4: main function where all variables are declared and from where all functions are executed
 function main() {
   document.body.setAttribute("id", "hyRepo");
 
@@ -94,6 +109,11 @@ function main() {
 
   const domHeaderSelector = document.createElement("select");
   domHeader.appendChild(domHeaderSelector);
+
+  const domErrorDisplay = document.createElement("div");
+  domErrorDisplay.setAttribute("class", "errors");
+  domErrorDisplay.style.display = "none";
+  domContainer.appendChild(domErrorDisplay);
 
   const domDetails = document.createElement("section");
   domDetails.setAttribute("class", "details");
@@ -113,12 +133,14 @@ function main() {
 
   document.body.appendChild(domContainer);
 
+  // URL for repos
   const url = "https://api.github.com/orgs/HackYourFuture/repos?per_page=100";
 
+  // fetch list of repos
   fetchData(url)
     .then(
       (data) => {
-        data.forEach((repo, index) => {
+        data.forEach((repo, index) => { // create a list of repos in select menu
           const domHeaderSelectorOpt = document.createElement("option");
           domHeaderSelectorOpt.textContent = repo.name;
           domHeaderSelectorOpt.value = index;
@@ -133,13 +155,19 @@ function main() {
           domHeaderSelector.appendChild(domHeaderSelectorOpt);
         });
         
+        // show the repo selected by default in the select menu
         showRepo();
+      },
+      (err) => {
+        displayError(err);
       }
     );
   
+    // upon selection of a repository from the list of repos
     domHeaderSelector.addEventListener("change", function() {
       showRepo();
     });
 }
 
+// execute main function when the window has finished loading
 window.onload = main();
