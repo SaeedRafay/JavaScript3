@@ -11,6 +11,16 @@ body.appendChild(buttonXML);
 body.appendChild(buttonAxios);
 body.appendChild(listDogs);
 
+function showPhoto(photo, border) {
+    const dogPhotoLi = document.createElement("li");
+    const dogPhotoImg = document.createElement("img");
+    dogPhotoImg.setAttribute("src", photo.message);
+    dogPhotoImg.setAttribute("width", "150");
+    dogPhotoImg.style.border = "2px solid " + border;
+    dogPhotoLi.appendChild(dogPhotoImg);
+    body.appendChild(dogPhotoLi);
+}
+
 const url = "https://dog.ceo/api/breeds/image/random";
 
 buttonXML.addEventListener("click", function() {
@@ -21,14 +31,8 @@ buttonXML.addEventListener("click", function() {
     // on success
     xhr.onload = function() {
         if(xhr.status === 200) {
-            const dogPhoto = JSON.parse(xhr.responseText);
-            const dogPhotoLi = document.createElement("li");
-            const dogPhotoImg = document.createElement("img");
-            dogPhotoImg.setAttribute("src", dogPhoto.message);
-            dogPhotoImg.setAttribute("width", "150");
-            dogPhotoImg.style.border = "2px solid #ff0000";
-            dogPhotoLi.appendChild(dogPhotoImg);
-            body.appendChild(dogPhotoLi);
+            const dogPhotoXML = JSON.parse(xhr.responseText);
+            showPhoto(dogPhotoXML, "red");
         } else {
             console.log(`Error ${xhr.status}: ${xhr.statusText}`);
         }
@@ -36,7 +40,7 @@ buttonXML.addEventListener("click", function() {
 
     // on error
     xhr.onerror = function() {
-        console.log("Request Failed");
+        console.log(xhr.responseText);
     }
 });
 
@@ -44,14 +48,8 @@ buttonAxios.addEventListener("click", function() {
     axios.get(url)
     .then(function (response) {
         // handle success
-        const dogPhoto = response.data;
-        const dogPhotoLi = document.createElement("li");
-        const dogPhotoImg = document.createElement("img");
-        dogPhotoImg.setAttribute("src", dogPhoto.message);
-        dogPhotoImg.setAttribute("width", "150");
-        dogPhotoImg.style.border = "2px solid #00ff00";
-        dogPhotoLi.appendChild(dogPhotoImg);
-        body.appendChild(dogPhotoLi);
+        const dogPhotoAxios = response.data;
+        showPhoto(dogPhotoAxios, "green");
     })
     .catch(function (error) {
         // handle error

@@ -1,7 +1,9 @@
+const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+const axios = require("axios");
+
 const url = "https://www.randomuser.me/api";
 
 function randomUserXML() {
-    const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
     const xhr = new XMLHttpRequest();
     xhr.open("GET", url);
     xhr.send();
@@ -18,12 +20,11 @@ function randomUserXML() {
 
     // on error
     xhr.onerror = function() {
-        console.log("Request Failed");
+        console.log(xhr.responseText);
     }
 }
 
 function randomUserAxios() {
-    const axios = require("axios");
     axios.get(url)
     .then(function (response) {
         // handle success
