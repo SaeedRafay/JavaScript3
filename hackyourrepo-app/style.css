@@ -1,3 +1,142 @@
 /* 
   Write here your CSS rules for HackYourRepo!
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body#hyRepo {
+  font-size: 95%;
+}
+
+#hyRepo .container {
+  width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#hyRepo .container > * {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+#hyRepo .header {
+  width: calc(100% - 1rem);
+  background-color: #325aa8;
+  color: #ffffff;
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+#hyRepo .header select {
+  margin-left: 2rem;
+  font-size: 1rem;
+  max-width: 80%;
+  visibility: hidden;
+}
+
+#hyRepo .errors {
+  border-radius: 3px;
+  padding: 1.2rem;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+  width: 100%;
+  margin-bottom: 0.8rem;
+  display: none;
+}
+
+#hyRepo .card {
+  box-shadow: 0px 1px 3px 0px rgba(50, 50, 50, 0.55);
+  border-radius: 3px;
+  padding: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+#hyRepo .details {
+  width: calc(50% - 1rem);
+  margin-bottom: 1rem;
+}
+
+#hyRepo .details dl {
+  display: grid;
+  grid-template-columns: 25% calc(75% - 10px);
+  column-gap: 10px;
+  row-gap: 10px;
+}
+
+#hyRepo .details dt {
+  font-weight: 800;
+  text-transform: capitalize;
+}
+
+#hyRepo .contributors {
+  width: calc(50% - 1rem);
+  visibility: hidden;
+}
+
+#hyRepo .contributor {
+  display: flex;
+  align-items: center;
+}
+
+#hyRepo .contributor a {
+  flex-grow: 1;
+  padding: 0 1rem;
+  text-decoration: none;
+}
+
+#hyRepo .contributor span {
+  background: #999999;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 0.2rem 0.5rem;
+}
+
+@media screen and (max-width: 1079px) {
+
+body#hyRepo {
+  font-size: 85%;
+}
+
+#hyRepo .container {
+  width: 100%;
+  margin: 0;
+}
+
+}
+
+@media screen and (max-width: 767px) {
+
+#hyRepo .header {
+  text-align: center;
+}
+
+#hyRepo .header strong,
+#hyRepo .header select {
+  margin: 0.3rem;
+}
+
+#hyRepo .details,
+#hyRepo .contributors {
+  width: calc(100% - 1rem);
+}
+
+#hyRepo .details dl {
+  display: grid;
+  grid-template-columns: 100%;
+  row-gap: 0px;
+}
+
+#hyRepo .details dd {
+  margin-bottom: 10px;
+}
+
+}
