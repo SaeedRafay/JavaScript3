@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display:wght@700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#triviaApp {
+  font-family: 'Montserrat', sans-serif;
+  padding: 1rem;
+}
+
+#triviaApp h1,
+#triviaApp h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+#triviaApp .container {
+  width: 100%;
+  max-width: 1000px;
+  margin-left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+#triviaApp .errors {
+  border-radius: 3px;
+  padding: 1.2rem;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+  width: 100%;
+  margin-bottom: 0.8rem;
+}
+
+#triviaApp .link {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#triviaApp .container > h1 {
+  margin: 1rem 0;
+}
+
+#triviaApp .container > p {
+  margin: 2rem 0;
+}
+
+#triviaApp .triviaItem:first-child {
+  border-top: 1px solid #afafaf;
+}
+
+#triviaApp .triviaItem {
+  border-bottom: 1px solid #afafaf;
+}
+
+#triviaApp .triviaItem h3 {
+  background-color: #e1e1e1;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+#triviaApp .triviaItem p {
+  background-color: #f0f0f0;
+  padding: 1rem;
+}
+
+#triviaApp .hide {
+  display: none;
+}
