@@ -8,7 +8,7 @@ function createDom(dom) {
     dom.contributors,
   );
   dom.header.append(dom.headerTitle, dom.headerSelector);
-  dom.contributors.append(dom.contributorsHead);
+  dom.contributors.append(dom.contributorsHead, dom.contributorsPages);
   dom.contributorsHead.append(dom.contributorsTitle);
 
   // set attributes
@@ -19,6 +19,7 @@ function createDom(dom) {
   dom.details.setAttribute('class', 'details');
   dom.contributors.setAttribute('class', 'contributors');
   dom.contributorsHead.setAttribute('class', 'card');
+  dom.contributorsPages.setAttribute('class', 'pagination card');
 
   // provide text
   dom.headerTitle.textContent = 'HYF Repositories';

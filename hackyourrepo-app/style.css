@@ -82,6 +82,29 @@ body#hyRepo {
   visibility: hidden;
 }
 
+#hyRepo .pagination {
+  display: none;
+  text-align: center;
+}
+
+#hyRepo .pagination .pageBtn:first-child {
+  border-left: 1px solid #eeeeee;
+}
+
+#hyRepo .pagination .pageBtn {
+  padding: 0.5rem 0.8rem;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+  border-right: 1px solid #eeeeee;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+#hyRepo .pagination .pageBtn.active {
+  color: #ffffff;
+  background-color: #325aa8;
+}
+
 #hyRepo .contributor {
   display: flex;
   align-items: center;

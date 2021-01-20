@@ -18,6 +18,7 @@ function main() {
     contributors: document.createElement('section'),
     contributorsHead: document.createElement('div'),
     contributorsTitle: document.createElement('strong'),
+    contributorsPages: document.createElement('div'),
   };
 
   // populate DOM elements
