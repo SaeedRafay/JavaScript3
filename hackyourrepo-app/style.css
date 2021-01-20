@@ -87,10 +87,6 @@ body#hyRepo {
   text-align: center;
 }
 
-#hyRepo .pagination .pageBtn:first-child {
-  border-left: 1px solid #eeeeee;
-}
-
 #hyRepo .pagination .pageBtn {
   padding: 0.5rem 0.8rem;
   border-top: 1px solid #eeeeee;
@@ -100,9 +96,25 @@ body#hyRepo {
   cursor: pointer;
 }
 
+#hyRepo .pagination .pageBtn:first-child {
+  border-left: 1px solid #eeeeee;
+  border-radius: 5px 0 0 5px;
+  padding: 0.5rem;
+}
+
+#hyRepo .pagination .pageBtn:last-child {
+  border-radius: 0 5px 5px 0;
+  padding: 0.5rem;
+}
+
 #hyRepo .pagination .pageBtn.active {
   color: #ffffff;
   background-color: #325aa8;
+}
+
+#hyRepo .pagination .pageBtn.disabled {
+  color: #eeeeee;
+  cursor: not-allowed;
 }
 
 #hyRepo .contributor {
