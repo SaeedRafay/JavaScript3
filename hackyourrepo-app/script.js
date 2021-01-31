@@ -62,7 +62,7 @@ function main() {
   }
 
   // function #3: to show error messages
-  function showRepo() {  
+  function showRepo(repoDataStr) {  
     // hide any previous errors
     domErrorDisplay.style.display = "none";
 
@@ -79,7 +79,8 @@ function main() {
     const domRepoDL = document.createElement("dl");
     domRepoDL.setAttribute("class", "card");
     // get the basic repo data stored previously in the HTML data attribute
-    const repoData = JSON.parse(domHeaderSelector.options[domHeaderSelector.selectedIndex].dataset.repoInfo);
+    const repoData = JSON.parse(repoDataStr);
+    console.log(repoData)
     // loop through the data from HTML data attribute and create a list
     for (let [key, value] of Object.entries(repoData)) {
       // don't write the repo URL
@@ -162,7 +163,8 @@ function main() {
         });
         
         // show the repo selected by default in the select menu
-        showRepo();
+        const repoDataStr = domHeaderSelector.options[domHeaderSelector.selectedIndex].dataset.repoInfo;
+        showRepo(repoDataStr);
       },
       (err) => {
         // if there is any error then call the function to display error
@@ -172,9 +174,10 @@ function main() {
   
     // upon selection of a repository from the list of repos
     domHeaderSelector.addEventListener("change", function() {
-      showRepo();
+      const repoDataStr = this.options[this.selectedIndex].dataset.repoInfo;
+      showRepo(repoDataStr);
     });
 }
 
 // execute main function when the window has finished loading
-window.onload = main();
+window.onload = main;

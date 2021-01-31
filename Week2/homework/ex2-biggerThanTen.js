@@ -1,16 +1,27 @@
-const checkDoubleDigits = (num) => {
-    return new Promise(function(resolve, reject) {
-        if (num > 10) {
-            resolve("The number is bigger than 10!");
-        } else {
-            reject("Error! The number is smaller than 10...");
-        }
-    })
-    .then(
-        (val) => { console.log( val ) },
-        (err) => { console.log( err ) }
-    );
+const checkDoubleDigits = num => {
+  return new Promise(function(resolve, reject) {
+    if (num > 10) {
+      resolve('The number is bigger than 10!');
+    } else {
+      reject(new Error('Error! The number is smaller than 10...'));
+    }
+  });
 };
 
-checkDoubleDigits(55); // should resolve
-checkDoubleDigits(10); // should reject
+// should resolve
+checkDoubleDigits(55)
+  .then(val => {
+    console.log(val);
+  })
+  .catch(err => {
+    console.log(err);
+  });
+
+// should reject
+checkDoubleDigits(10)
+  .then(val => {
+    console.log(val);
+  })
+  .catch(err => {
+    console.log(err);
+  });

@@ -19,17 +19,20 @@ const getAnonName = function(firstName) {
       if (firstName) {
         resolve(firstName);
       } else {
-        reject("You didn't pass in a first name!");
+        reject(new Error("You didn't pass in a first name!"));
       }
     }, 2000);
-  }).then(
-    function(val) {
-      console.log(`${val} Doe`);
-    },
-    function(err) {
-      console.log(new Error(err));
-    },
-  );
+  })
 };
 
-getAnonName('John');
+getAnonName('John')
+  .then(
+    function(val) {
+      console.log(`${val} Doe`);
+    }
+  )
+  .catch(
+    function(err) {
+      console.log(err);
+    }
+  );
