@@ -35,4 +35,4 @@ function main() {
 }
 
 // execute main function when the window has finished loading
-window.onload = main();
+window.onload = main;

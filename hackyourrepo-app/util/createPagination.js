@@ -4,7 +4,7 @@ function createPagination(dom, dataPages) {
 
     dataPages.forEach((dataPage, index) => {
       const pageNum = document.createElement('span');
-      pageNum.setAttribute('class', 'pageBtn');
+      pageNum.className = 'pageBtn';
       pageNum.addEventListener('click', function() {
         pageContributors(dom, dataPage);
         dom.contributorsPages.childNodes.forEach(e => {
@@ -28,8 +28,8 @@ function createPagination(dom, dataPages) {
 
     const prevPage = document.createElement('span');
     const nextPage = document.createElement('span');
-    prevPage.setAttribute('class', 'pageBtn prevBtn disabled');
-    nextPage.setAttribute('class', 'pageBtn nextBtn');
+    prevPage.className = 'pageBtn prevBtn disabled';
+    nextPage.className = 'pageBtn nextBtn';
     prevPage.textContent = '❮';
     nextPage.textContent = '❯';
     prevPage.addEventListener('click', function() {

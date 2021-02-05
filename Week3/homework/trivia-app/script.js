@@ -66,4 +66,4 @@ function main() {
     document.body.appendChild(domContainer);
 }
 
-window.onload = main();
+window.onload = main;

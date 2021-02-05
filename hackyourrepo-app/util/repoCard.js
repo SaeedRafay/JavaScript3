@@ -1,6 +1,6 @@
 function repoCard(dom, repoData) {
   const domRepoDL = document.createElement('dl');
-  domRepoDL.setAttribute('class', 'card');
+  domRepoDL.className = 'card';
   // loop through the data from HTML data attribute and create a list
   for (let [key, value] of Object.entries(repoData)) {
     // don't write the repo URL

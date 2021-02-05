@@ -13,13 +13,13 @@ function createDom(dom) {
 
   // set attributes
   document.body.setAttribute('id', 'hyRepo');
-  dom.container.setAttribute('class', 'container');
-  dom.header.setAttribute('class', 'header');
-  dom.errorDisplay.setAttribute('class', 'errors');
-  dom.details.setAttribute('class', 'details');
-  dom.contributors.setAttribute('class', 'contributors');
-  dom.contributorsHead.setAttribute('class', 'card');
-  dom.contributorsPages.setAttribute('class', 'pagination card');
+  dom.container.className = 'container';
+  dom.header.className = 'header';
+  dom.errorDisplay.className = 'errors';
+  dom.details.className = 'details';
+  dom.contributors.className = 'contributors';
+  dom.contributorsHead.className = 'card';
+  dom.contributorsPages.className = 'pagination card';
 
   // provide text
   dom.headerTitle.textContent = 'HYF Repositories';

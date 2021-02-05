@@ -3,7 +3,7 @@ function pageContributors(dom, data) {
   data.forEach(contributor => {
     // create a card for contributor
     const domContributor = document.createElement('div');
-    domContributor.setAttribute('class', 'contributor card');
+    domContributor.className = 'contributor card';
     dom.contributors.appendChild(domContributor);
     // add contributor image
     const domContributorImg = document.createElement('img');
@@ -18,7 +18,7 @@ function pageContributors(dom, data) {
     domContributor.appendChild(domContributorLink);
     // add the number of contributions
     const domContributions = document.createElement('span');
-    domContributions.setAttribute('class', 'commits');
+    domContributions.className = 'commits';
     domContributions.textContent = contributor.contributions;
     domContributor.appendChild(domContributions);
   });

@@ -33,11 +33,11 @@ class Animal {
         this.work = work;
         this.owner = owner;
 
-        console.log(`${this.owner} has a ${this.type}, named ${this.name}. The ${this.type} is ${this.age} years old and has the color ${this.color}. Usually the ${this.type} eats ${this.food} or ${this.work} for ${this.owner}.`);
+        console.log(`${this.owner.name} has a ${this.type}, named ${this.name}. The ${this.type} is ${this.age} years old and has the color ${this.color}. Usually the ${this.type} eats ${this.food} or ${this.work} for ${this.owner.name}.`);
     }
 
     helps() {
-        console.log(`${this.name} ${this.work} for ${this.owner}.`);
+        console.log(`${this.name} ${this.work} for ${this.owner.name}.`);
     }
 
     eats() {
@@ -46,7 +46,7 @@ class Animal {
 }
 
 const abdulKareem = new Human("Abdulkareem", "man", "35", "Riyadh", "wife", 3, "construction worker", "makes houses", "dates", "smoke water pipe");
-const adel = new Animal("horse", "Adel", 15, "brown", "grass", "helps transport materials", abdulKareem.name);
+const adel = new Animal("horse", "Adel", 15, "brown", "grass", "helps transport materials", abdulKareem);
 
 abdulKareem.makes();
 abdulKareem.consumes();
